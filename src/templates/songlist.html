@@ -1,0 +1,46 @@
+
+<html>
+    <title>HMRC Desk Optimisation </title>
+    <meta name="viewport"  content="width=device-width, initial-scale=1">
+    
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+  <script>
+   function loader() {
+        document.getElementById("load").style.visibility = "visible"
+    }
+    </script>
+<body class="w3-light-grey">        
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">  
+        <div class="w3-row-padding">
+            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Dashboard</h2>         
+            <div class="w3-third">    
+                <div class="w3-container w3-card w3-white w3-margin-bottom">                   
+                    {% if errormsg%}
+                    <p> <span style="color:red">{{errormsg}}</span></p>
+                    {%endif%}
+                    <p>  
+                        <h3 class="w3-text-grey w3-padding-16">Statistics</h3>                
+                        {{ result.to_html(classes="w3-table") | safe}}                     
+                    </p>
+                </div>
+            </div>      
+           
+            {%for file in files%}
+            <div class="w3-third">    
+                <div class="w3-container w3-card w3-white w3-margin-bottom"> 
+                    <img src="\static\images\{{file}}" style="height:380px;"/><br/>
+                </div>
+            </div>
+        {%endfor%}
+        </div>
+    </div>
+</body>
+</html>
+
+

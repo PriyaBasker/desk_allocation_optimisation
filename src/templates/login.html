@@ -1,0 +1,68 @@
+
+<html>
+    <title>HMRC Desk Optimisation </title>
+    <meta name="viewport"  content="width=device-width, initial-scale=1">
+    
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    .center-div{
+  position: absolute;
+  margin: auto;
+  margin-top:60px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  background-color: #ccc;
+  border-radius: 3px;
+}
+</style>
+  <script>
+   function loader() {
+        document.getElementById("load").style.visibility = "visible"
+       
+    }
+    var seconds = 0;
+    setInterval(function () {
+        document.getElementById("timer").innerHTML = seconds++ + " Seconds";
+    }, 1000);
+
+    </script>
+<body class="w3-light-grey">
+        
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px; text-align:center">  
+        <div class="w3-row-padding">
+            <div class="w3-third">    
+                <div class="w3-container w3-card w3-white w3-margin-bottom center-div">
+                <h2 class="w3-text-grey w3-padding-16"> <img  src="\static\logo.png" width="400px" height="60px" />
+                  <hr>  <i class="fa-fw w3-margin-left w3-xxlarge w3-text-teal"></i> Desk Optimisation Tool</h2>       
+
+                        <form action="{{ url_for('validate_user_login') }}" method="post">
+                            <p>       
+                                <label for="txt_name">Username</label>
+                                <input type="text" id="txt_name" name="txt_name" placeholder="Username" required minlength="5" maxlength="60">
+                            </p>
+                            <p>
+                                <label for="txt_password">Password</label>
+                                <input type="password" id="txt_password" name="txt_password" placeholder="Password" required minlength="2" maxlength="60">
+                            </p><br/>
+                            <p>
+                            <input class="w3-button w3-teal" type="submit" value="Login" onclick="loader()">
+                            <p><span style="color:red">{{errormsg}}</span></p>                                    
+                            </p>
+                        </form> 
+                    </div>
+                </div>            
+               
+            </div>
+        <div>
+    </div>  
+    </body>
+</html>
+            
