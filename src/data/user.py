@@ -14,9 +14,8 @@ def validate_login(name,password):
     	boolen : valid or not """
 	
 	#Read the attendance excelsheet check if username and password matched
-	df_atten=pd.read_csv("datasrc/Attendance_2301.csv")
-	# 10006 oqumouv
-
+	df_atten=pd.read_csv("datasrc/People.csv")
+	# 10006 ultbjxu
 	
 	if (df_atten.Username.astype(str).str.contains(name).any() and df_atten.Password.astype(str).str.contains(password).any()):		
 		return True

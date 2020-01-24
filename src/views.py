@@ -3,7 +3,7 @@ import pandas as pd
 
 from flask import Flask,request,render_template, request, make_response, flash, redirect
 from src.data import user as user
-from src.data import lyrics as lyrics
+from src.data import suggestions as sug
 from src.helper import plots as plot
 from src.helper.sentiment import SentimentAnalyzer
 
@@ -34,13 +34,14 @@ def teamdashboard():
 @app.route('/userdetails')
 def userdetails():
    username = request.cookies.get('username')
-   print(username)
-   userdetails=user.get_user_details_id(username)
+   print("uesrname", username)
+   userdetails=user.get_user_details_id('10006')
    return render_template("userdetails.html",userdetails=userdetails)  
 
 @app.route('/suggestions')
 def suggestions():
-   return render_template('suggestions.html')
+   suggestion=sug.suggest_seat(10006,"29/01/2019")
+   return render_template('suggestions.html',suggestion=suggestion)
 
 
 @app.route('/userdetails', methods=['POST'])
@@ -58,7 +59,7 @@ def validate_user_login():
       resp.set_cookie('username', txt_name)
       userdetails=user.get_user_details_id(txt_name)
       return make_response(render_template("userdetails.html",userdetails=userdetails))
-      
+
 
 
 @app.route('/song_list', methods=['POST'])

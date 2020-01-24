@@ -7,7 +7,7 @@ def randomString(stringLength=10):
     letters =string.ascii_lowercase
     res_df=pd.DataFrame(columns=['Password'])
     #685956
-    for x in range(6000):
+    for x in range(7287):
         txtpass=""        
         for  i in range(stringLength):
             txtpass=txtpass + (random.choice(letters)) 
@@ -16,8 +16,8 @@ def randomString(stringLength=10):
     return res_df
 
 
-df_atten=pd.read_csv("datasrc/Attendance.csv")
+df_atten=pd.read_csv("datasrc/People.csv")
 df_pass=randomString(7)
 df_final= df_atten.join(df_pass)
-print(df_final)
-df_final.to_csv('datasrc/Attendance_2301.csv',index=False)
+print(df_final.count())
+df_final.to_csv('datasrc/People.csv',index=False)
