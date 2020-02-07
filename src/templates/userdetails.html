@@ -41,18 +41,26 @@
   <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
   
   <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+  <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
   <div class="w3-main" style="margin-left:250px">
   
     <div class="w3-row w3-padding-64">
       <div class="w3-twothird w3-container">
-        <h1 class="w3-text-teal">UserDetails</h1>
-        {{ userdetails.to_html(classes="w3-table") | safe}}   
+        <h1 class="w3-text-teal">User Details</h1>
+      
+        <table class="w3-table-all">
+          <tr><th>Id</th><td>{{userdetails.Username.to_string(index=False)}}</td></tr>
+          <tr><th>Team</th> <td>{{userdetails.Team.to_string(index=False)}}</td></tr>
+          <tr><th>Age </th><td>{{userdetails.Age_Range.to_string(index=False)}}</td></tr>
+          <tr><th>Gender</th><td>{{userdetails.Gender.to_string(index=False)}}</td></tr>
+          <tr><th>Travel Time</th><td>{{userdetails.Travel_Time.to_string(index=False)}}</td></tr>
+          <tr><th>Special Feature</th><td>{{userdetails.Special_Feature.to_string(index=False)}}</td></tr>          
+        </table> 
       </div>
     </div>
   </div>
   <!-- END MAIN -->
-  </div>  
-           
+  </div>            
         
     </body>
 </html>
